@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>...App is loading...</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+      <script>
+      require('electron').ipcRenderer.on('progress', (event, message) => {
+        const percent = Math.floor(message * 100)
+        window.document.getElementById('percentage').innerHTML = percent
+      })
+    </script>
+  </head>
+  <body>
+    <h1>Your app is loading</h1>
+    <h2>Content is <span id="percentage">0</span>% downloaded.</h2>
+  </body>
+</html>
